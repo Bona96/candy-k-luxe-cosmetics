@@ -1,8 +1,23 @@
 import LadyLookingAtProduct from './images/candy-k-lady-looking-at-product.jpg'
 import BlackWomanLipGlossBeauty from '../assets/images/candy-k-black-woman-lip-gloss-beauty.webp'
 import MultipleProductDisplay from '../assets/images/candy-k-multiple-product-display.png'
+import logoWhite from '../assets/images/candy-k-logo-white-bg.png'
+import logoTransparent from '../assets/images/candy-k-logo-bg-transparent.png'
+
 import type { SlideData } from '../types/types';
 
+export const LightModeLogo = logoWhite
+export const DarkModeLogo = logoTransparent
+export const logos = [
+    {
+        id: 1,
+        img: logoWhite
+    },
+    {
+        id: 2,
+        img: logoTransparent
+    }
+]
 export const values = [
     { title: "Consistency", desc: "Reliable service, timely deliveries, and professional structure.", icon: "✨" },
     { title: "Inclusivity", desc: "Flattering diverse complexions. Beauty is for every lip and every vibe.", icon: "🌍" },

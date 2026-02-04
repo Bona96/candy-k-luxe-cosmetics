@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ThemeToggle } from './Buttons';
+import Logo from './Logo';
+import { useDarkMode } from '../contexts/DarkModeContext';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  const { isScrolled } = useDarkMode()
   const navLinks = [
     { name: 'Mission', href: '#mission' },
     { name: 'Gallery', href: '#gallery' },
@@ -26,12 +21,8 @@ const Navbar: React.FC = () => {
           bg-brand-bg/40 backdrop-blur-xl border border-secondary/20
           shadow-[0_10px_40px_rgba(109,40,217,0.1)]
         `}>
-          {/* Logo */}
-          <div className="flex flex-col leading-tight">
-            <span className="text-xl font-black tracking-widest text-brand-text">CANDY.K</span>
-            <span className="text-[10px] tracking-[0.3em] text-secondary font-bold">LUXE COSMETICS</span>
-          </div>
-
+          {/* Logo Section */}
+          <Logo />
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

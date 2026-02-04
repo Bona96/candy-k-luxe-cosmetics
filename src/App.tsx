@@ -9,6 +9,9 @@ import MissionVision3D from './components/VisionMission'
 import Goals from './components/Goals'
 import CustomCursor from './components/CustomCusor'
 import Media from './components/Media'
+import Contact from './pages/Contact'
+import Footer from './components/Footer'
+import { LuxurySection, StackingSection } from './components/ScrollSections'
 
 const App: React.FC = () => {
   const SmoothScroll = () => {
@@ -32,23 +35,33 @@ const App: React.FC = () => {
     return null
   }
   return (
-    <div className="relative bg-brand-bg">
+    <div className="relative bg-brand-bg space-y-0">
       <SmoothScroll />
       <CustomCursor />
       <Navbar />
-      
-      <main>
-        {/* Sections fade and transition based on the LuxurySection wrapper */}
-        <Hero />
-        <Media />
+      <Hero />
+      <Media />
+      {/* The following sections stack on top of each other */}
+      <StackingSection index={1}>
         <MissionVision3D />
-        <div className="space-y-0"> {/* Use space-y-0 because sections are h-screen sticky */}
-          <Values />
-          <Goals />
-          <Manifesto />
-        </div>
-      </main>
+      </StackingSection>
+
+      <StackingSection index={2}>
+        <Values />
+      </StackingSection>
+
+      <StackingSection index={3}>
+        <Goals />
+      </StackingSection>
       
+      <StackingSection index={3}>
+        <Manifesto />
+      </StackingSection>
+
+      <StackingSection index={4}>
+        <Contact />
+      </StackingSection>
+      <Footer />
       {/* Optional: Add a subtle grain overlay for a film-like texture */}
       <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>

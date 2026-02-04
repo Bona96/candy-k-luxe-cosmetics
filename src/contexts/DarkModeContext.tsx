@@ -4,6 +4,7 @@ type Theme = 'light' | 'dark';
 
 type DarkModeContextType = {
   theme: Theme;
+  isScrolled: boolean;
   toggleTheme: () => void;
   setTheme: (t: Theme) => void;
 };
@@ -11,6 +12,7 @@ type DarkModeContextType = {
 export const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined);
 
 export const DarkModeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [theme, setThemeState] = useState<Theme>(() => {
     try {
       const stored = localStorage.getItem('theme') as Theme | null;
@@ -39,12 +41,30 @@ export const DarkModeProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }, [theme, setTheme]);
 
-  // // Synchronize the DOM attribute whenever state changes
+  // Synchronize the DOM attribute whenever state changes
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Observer to detect theme changes from your ThemeToggle
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark';
+      setTheme(currentTheme || 'light');
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+  
+  const value = useMemo(() => ({ theme, toggleTheme, setTheme, isScrolled }), [theme, toggleTheme, setTheme]);
 
   return <DarkModeContext.Provider value={value}>{children}</DarkModeContext.Provider>;
 };

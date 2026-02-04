@@ -12,7 +12,7 @@ const Slider: React.FC = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[index].id}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-6xl"
         >
           {/* COLUMN 1: IMAGE SECTION */}
           <motion.div
@@ -37,29 +37,29 @@ const Slider: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-2 mt-10"
           >
-            <div className="p-8 md:p-12 rounded-[2.5rem] bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl">
+            <div className=" p-8 md:p-12 rounded-[2.5rem] bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl">
               <motion.span 
                 style={{ color: slides[index].color }}
-                className="text-sm font-bold tracking-[0.3em] uppercase mb-4 block"
+                className="text-sm font-bold tracking-[0.3em] uppercase mt-10 mb-3 block"
               >
                 Candy.K Luxe Presents
               </motion.span>
               
-              <h1 className="text-5xl md:text-7xl font-black text-brand-text mb-6 leading-tight">
+              <h1 className="text-xl md:text-5xl font-black text-brand-text mb-5 leading-tight">
                 {slides[index].name}
               </h1>
               
-              <p className="text-xl md:text-2xl font-medium text-secondary italic mb-4">
+              <p className="text-xl md:text-2xl font-medium text-secondary italic mb-3">
                 {slides[index].tagline}
               </p>
               
-              <p className="text-brand-text/80 text-lg leading-relaxed mb-10 max-w-md">
+              <p className="text-brand-text/80 text-lg leading-relaxed mb-8 max-w-md">
                 {slides[index].description}
               </p>
 
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-5">
                 <button className="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:scale-105 active:scale-95">
                   Shop Shade
                 </button>

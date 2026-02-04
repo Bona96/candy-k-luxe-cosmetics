@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
-import { LuxurySection } from "./ScrollSections";
 import { goals } from "../assets/constants";
 
 const Goals = () => {
 
   return (
-    <LuxurySection>
       <section id="goals">
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
           {goals.map((goal, i) => (
@@ -27,7 +25,6 @@ const Goals = () => {
           ))}
         </div>
       </section>
-    </LuxurySection>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform} from 'framer-motion';
+import type { StackingProps } from '../types/types';
 
 // This wrapper makes any section "pop" and "fade" in 3D space as it enters
 export const FadeInSection = ({ children }: { children: React.ReactNode }) => {
@@ -36,6 +37,42 @@ export const LuxurySection = ({ children }: { children: React.ReactNode }) => {
       <motion.div 
         style={{ rotateX, opacity, scale, perspective: "1000px" }}
         className="w-full h-screen flex items-center justify-center"
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+};
+
+
+
+export const StackingSection = ({ children, index }: StackingProps) => {
+  const container = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"] // Track the section as it leaves the top
+  });
+
+  // As the section scrolls out:
+  // 1. It scales down slightly (0.9)
+  // 2. It dims (opacity 0.5)
+  // 3. It tilts slightly back (rotateX)
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5]);
+
+  return (
+    <div ref={container} className="h-screen w-full sticky top-0 overflow-hidden">
+      <motion.div 
+        style={{ 
+          scale, 
+          opacity, 
+          rotateX,
+          transformOrigin: "top center",
+          perspective: "1000px" 
+        }}
+        className="w-full h-full flex items-center justify-center bg-brand-bg shadow-[0_-20px_50px_rgba(0,0,0,0.2)]"
       >
         {children}
       </motion.div>

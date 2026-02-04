@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { X } from 'lucide-react'; // TikTok often uses MessageCircle or a custom SVG
+// import { X } from 'lucide-react'; // TikTok often uses MessageCircle or a custom SVG
 import {
     FaInstagram as Instagram,
     FaTiktok as Tiktok,
@@ -32,7 +32,7 @@ const SocialIcon = ({ link }: { link: SocialLink }) => {
     >
       {/* Liquid Fill Hover Effect */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"
+        className="absolute inset-0 bg-linear-to-tr from-primary to-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"
       />
 
       {/* Icon Wrapper */}
@@ -41,7 +41,7 @@ const SocialIcon = ({ link }: { link: SocialLink }) => {
       </span>
 
       {/* Subtle Specular Highlight (The Gloss) */}
-      <div className="absolute top-1 left-1 w-full h-full bg-gradient-to-br from-white/20 to-transparent rounded-full pointer-events-none" />
+      <div className="absolute top-1 left-1 w-full h-full bg-linear-to-br from-white/20 to-transparent rounded-full pointer-events-none" />
     </motion.a>
   );
 };

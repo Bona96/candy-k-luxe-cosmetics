@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ThemeToggle } from './Buttons';
 import Logo from './Logo';
 import { useDarkMode } from '../contexts/DarkModeContext';
+import { Socials } from './Socials';
 
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +11,8 @@ const Navbar: React.FC = () => {
     { name: 'Mission', href: '#mission' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Values', href: '#values' },
-    { name: 'Goals', href: '#goals' }
+    { name: 'Goals', href: '#goals' },
+    { name: 'Order Now', href: '#contact' }
   ];
 
   return (
@@ -37,11 +39,13 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Actions */}
+          
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <button className="hidden sm:block bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+            {/* <button className="hidden sm:block bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg">
               SHOP GLOSS
-            </button>
+            </button> */}
+            <Socials />
             <button 
               className="md:hidden text-brand-text" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -62,6 +66,8 @@ const Navbar: React.FC = () => {
                 ))}
                 <button className="bg-secondary text-white py-4 rounded-2xl font-bold">SHOP NOW</button>
              </div>
+             <Socials />
+             <ThemeToggle />
           </div>
         )}
       </div>

@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* This maps the CSS variables defined below to Tailwind utilities */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-surface: var(--surface);
+  --color-brand-bg: var(--bg-main);
+  --color-brand-text: var(--text-main);
+}
+
+/* LIGHT MODE */
+:root,
+:root[data-theme="light"] {
+  --bg-main: #ffffff;
+  --surface: #f5f3ff;
+  --text-main: #1e1b4b;
+  --primary: #6d28d9;  /* Vivid Purple */
+  --secondary: #db2777; /* Deep Pink */
+}
+
+/* DARK MODE */
+:root[data-theme="dark"] {
+  --bg-main: #0f0716;  /* Midnight Purple */
+  --surface: #1e112f; /* Dark Grape */
+  --text-main: #f5f3ff;
+  --primary: #a78bfa;  /* Lavender Purple */
+  --secondary: #f472b6; /* Soft Pink */
+}
+
+/* Apply base styles */
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text transition-colors duration-300;
+  }
+}

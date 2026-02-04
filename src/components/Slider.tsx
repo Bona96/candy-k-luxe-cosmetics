@@ -12,42 +12,69 @@ const Slider: React.FC = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[index].id}
-          initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-          exit={{ opacity: 0, scale: 1.2, rotateY: 20 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 flex flex-col items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl"
         >
-          {/* Layer 2: The Image (Floating 3D Effect) */}
-          <motion.img
-            src={slides[index].image}
-            alt={slides[index].name}
-            animate={{ y: [0, -20, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="w-[280px] md:w-[450px] drop-shadow-[0_50px_50px_rgba(0,0,0,0.3)] z-10"
-          />
+          {/* COLUMN 1: IMAGE SECTION */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center order-2 lg:order-1"
+          >
+            <motion.img
+              src={slides[index].image}
+              alt={slides[index].name}
+              animate={{ y: [0, -20, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="rounded-xl w-[250px] md:w-[400px] lg:w-[450px] drop-shadow-[0_30px_50px_rgba(0,0,0,0.2)]"
+            />
+          </motion.div>
 
-          {/* Layer 3: The Typography Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none z-20">
-            <motion.h1 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-6xl md:text-9xl font-black text-brand-text drop-shadow-2xl"
-            >
-              {slides[index].name.split(' ')[0]}
-              <span style={{ color: slides[index].color }}>
-                {slides[index].name.split(' ')[1] ? ` ${slides[index].name.split(' ')[1]}` : ''}
-              </span>
-            </motion.h1>
-            <motion.p 
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 0.8 }}
-               className="text-sm md:text-xl font-light tracking-[0.5em] text-brand-text mt-4 uppercase"
-            >
-              {slides[index].tagline}
-            </motion.p>
-          </div>
+          {/* COLUMN 2: GLASSMORPHIC TEXT SECTION */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 lg:order-2"
+          >
+            <div className="p-8 md:p-12 rounded-[2.5rem] bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl">
+              <motion.span 
+                style={{ color: slides[index].color }}
+                className="text-sm font-bold tracking-[0.3em] uppercase mb-4 block"
+              >
+                Candy.K Luxe Presents
+              </motion.span>
+              
+              <h1 className="text-5xl md:text-7xl font-black text-brand-text mb-6 leading-tight">
+                {slides[index].name}
+              </h1>
+              
+              <p className="text-xl md:text-2xl font-medium text-secondary italic mb-4">
+                {slides[index].tagline}
+              </p>
+              
+              <p className="text-brand-text/80 text-lg leading-relaxed mb-10 max-w-md">
+                {slides[index].description}
+              </p>
+
+              <div className="flex items-center gap-6">
+                <button className="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:scale-105 active:scale-95">
+                  Shop Shade
+                </button>
+                <div className="flex gap-2">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setIndex(i)}
+                      className={`h-2 rounded-full transition-all ${i === index ? 'w-8 bg-secondary' : 'w-2 bg-brand-text/20'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </AnimatePresence>
 

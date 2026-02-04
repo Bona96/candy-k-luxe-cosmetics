@@ -58,13 +58,23 @@ export const slides: SlideData[] = [
     id: 1,
     name: "GLOSS CHARM",
     tagline: "Your Lips, Your Power.",
+    description: "A luxury beauty brand committed to producing high-quality, elegant, and affordable cosmetic products designed for everyday confidence.",
     image: MultipleProductDisplay,
     color: "var(--secondary)"
   },
   {
     id: 2,
-    name: "PURPLE REIGN",
+    name: "GLOSS CHARM",
+    tagline: "Your Lips, Your Power.",
+    description: "We exist to enhance-not replace- natural beauty. ",
+    image: MultipleProductDisplay,
+    color: "var(--secondary)"
+  },
+  {
+    id: 3,
+    name: "TRUFFLE LIPGLOSS",
     tagline: "Unapologetic Elegance.",
+    description: "Our products are designed to make every customer feel bold, confident and unapologetic.",
     image: BlackWomanLipGlossBeauty,
     color: "var(--primary)"
   }

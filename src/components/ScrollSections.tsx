@@ -12,7 +12,7 @@ export const FadeInSection = ({ children }: { children: React.ReactNode }) => {
         duration: 0.8, 
         ease: [0.22, 1, 0.36, 1] // Custom "Luxe" cubic-bezier
       }}
-      className="perspective-1000" // Adds 3D depth
+      className="h-screen w-full flex items-center perspective-1000" // Adds 3D depth
     >
       {children}
     </motion.section>
@@ -35,7 +35,7 @@ export const LuxurySection = ({ children }: { children: React.ReactNode }) => {
     <div ref={containerRef} className="h-screen w-full flex items-center justify-center sticky top-0 overflow-hidden">
       <motion.div 
         style={{ rotateX, opacity, scale, perspective: "1000px" }}
-        className="w-full h-full flex items-center justify-center"
+        className="w-full h-screen flex items-center justify-center"
       >
         {children}
       </motion.div>

@@ -11,7 +11,7 @@ import CustomCursor from './components/CustomCusor'
 import Media from './components/Media'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
-import { LuxurySection, StackingSection } from './components/ScrollSections'
+import { StackingSection } from './components/ScrollSections'
 
 const App: React.FC = () => {
   const SmoothScroll = () => {
@@ -53,7 +53,7 @@ const App: React.FC = () => {
       <StackingSection index={3}>
         <Goals />
       </StackingSection>
-      
+
       <StackingSection index={3}>
         <Manifesto />
       </StackingSection>

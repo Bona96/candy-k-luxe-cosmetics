@@ -46,7 +46,7 @@ export const LuxurySection = ({ children }: { children: React.ReactNode }) => {
 
 
 
-export const StackingSection = ({ children, index }: StackingProps) => {
+export const StackingSection = ({ children }: StackingProps) => {
   const container = useRef(null);
   
   const { scrollYProgress } = useScroll({

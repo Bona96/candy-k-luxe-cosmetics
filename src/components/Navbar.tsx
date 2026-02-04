@@ -1,63 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeToggle } from './Buttons';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Mission', href: '#mission' },
+    { name: 'Gallery', href: '#gallery' },
+    { name: 'Values', href: '#values' },
+    { name: 'Goals', href: '#goals' }
+  ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-4 py-3 md:px-8">
-      {/* Container with Glassmorphism */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 
-                      rounded-2xl transition-all duration-300
-                      bg-white/30 dark:bg-black/20 
-                      backdrop-blur-lg 
-                      border border-white/40 dark:border-white/10 
-                      shadow-[0_8px_32px_0_rgba(255,182,193,0.15)]">
-        
-        {/* Brand */}
-        <div className="text-2xl font-bold tracking-tighter text-brandbg-600 dark:text-pink-400">
-          Candy<span className="font-light italic">K</span>
-        </div>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
+      <div className="container mx-auto px-4">
+        <div className={`
+          flex items-center justify-between px-6 py-3 rounded-full
+          bg-brand-bg/40 backdrop-blur-xl border border-secondary/20
+          shadow-[0_10px_40px_rgba(109,40,217,0.1)]
+        `}>
+          {/* Logo */}
+          <div className="flex flex-col leading-tight">
+            <span className="text-xl font-black tracking-widest text-brand-text">CANDY.K</span>
+            <span className="text-[10px] tracking-[0.3em] text-secondary font-bold">LUXE COSMETICS</span>
+          </div>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700 dark:text-gray-200">
-          {['Shades', 'Formula', 'Sustainability', 'Reviews'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-pink-500 transition-colors">
-              {item}
-            </a>
-          ))}
-        </div>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-sm font-medium hover:text-secondary transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <button className="hidden sm:block bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-full text-sm font-semibold transition-transform active:scale-95 shadow-md">
-            Shop Now
-          </button>
-          
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden p-2 text-gray-600 dark:text-gray-300"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Drawer */}
-      {isOpen && (
-        <div className="md:hidden mt-2 bg-white/80 dark:bg-black/60 backdrop-blur-xl rounded-2xl p-6 border border-white/20 animate-in fade-in slide-in-from-top-4">
-          <div className="flex flex-col gap-4 text-center text-lg font-medium dark:text-white">
-            <a href="#shades" onClick={() => setIsOpen(false)}>Shades</a>
-            <a href="#formula" onClick={() => setIsOpen(false)}>Formula</a>
-            <a href="#reviews" onClick={() => setIsOpen(false)}>Reviews</a>
-            <button className="bg-pink-500 text-white py-3 rounded-xl mt-2">Shop Now</button>
+          {/* Actions */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <button className="hidden sm:block bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+              SHOP GLOSS
+            </button>
+            <button 
+              className="md:hidden text-brand-text" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6" : "M4 6h16M4 12h16m-7 6h7"} />
+              </svg>
+            </button>
           </div>
         </div>
-      )}
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
+             <div className="flex flex-col gap-6 text-center">
+                {navLinks.map((link) => (
+                  <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-semibold">{link.name}</a>
+                ))}
+                <button className="bg-secondary text-white py-4 rounded-2xl font-bold">SHOP NOW</button>
+             </div>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };

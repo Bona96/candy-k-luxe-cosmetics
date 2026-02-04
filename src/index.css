@@ -35,3 +35,30 @@
     @apply bg-brand-bg text-brand-text transition-colors duration-300;
   }
 }
+
+/* Glass Reflection Effect */
+.glass-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-reflection::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 30%
+  );
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}

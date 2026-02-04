@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
                       shadow-[0_8px_32px_0_rgba(255,182,193,0.15)]">
         
         {/* Brand */}
-        <div className="text-2xl font-bold tracking-tighter text-pink-600 dark:text-pink-400">
-          GLOSS<span className="font-light italic">LAB</span>
+        <div className="text-2xl font-bold tracking-tighter text-brandbg-600 dark:text-pink-400">
+          Candy<span className="font-light italic">K</span>
         </div>
 
         {/* Desktop Links */}

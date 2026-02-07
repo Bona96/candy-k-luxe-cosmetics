@@ -14,8 +14,6 @@ import Footer from './components/Footer'
 import { StackingSection } from './components/ScrollSections'
 import AboutCandyK from './pages/AboutCandyK'
 import { footerData } from './assets/constants'
-import { useGlobalContext } from './contexts/GlobalContext'
-import PrivacyPolicy from './pages/PrivacyPolicy'
 
 const App: React.FC = () => {
   // const {privacyPolicyModal, setPrivacyPolicyModal} = useGlobalContext()

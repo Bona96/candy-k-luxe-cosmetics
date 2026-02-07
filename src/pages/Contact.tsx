@@ -26,7 +26,7 @@ const Contact = () => {
   return (
     <LuxurySection>
         <section id="contact" className="h-screen py-24 px-6 bg-brand-bg relative">
-            <div className="data-lenis-prevent overflow-hidden overflow-y-auto h-100 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="data-lenis-prevent overflow-hidden overflow-y-auto h-120 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 {/* Brand Side */}
                 <motion.div 
                     initial={{ opacity: 0, x: -30 }}

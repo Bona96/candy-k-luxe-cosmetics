@@ -61,7 +61,7 @@ export const StackingSection = ({ children, index }: StackingProps) => {
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
   return (
-    <div ref={container} className={`h-screen w-full sticky top-0 overflow-hidden border-2
+    <div ref={container} className={`h-screen w-full sticky top-0 border-2
       ${index === 1
         ? 'border-secondary'
         : index === 2

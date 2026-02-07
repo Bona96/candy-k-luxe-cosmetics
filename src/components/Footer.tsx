@@ -37,18 +37,18 @@ const Footer: React.FC<FooterProps> = ({footerInfo}) => {
                   <>
                   {item.title === 'Privacy Policy' 
                     ? (
-                      <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
-                        <button onClick={() => setPrivacyPolicyModal(true)} className="hover:text-secondary transition-colors">
-                          {item.title}
-                        </button>
-                      </div>
-                    ) 
+                        <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
+                          <button onClick={() => setPrivacyPolicyModal(true)} className="hover:text-secondary transition-colors">
+                            {item.title}
+                          </button>
+                        </div>
+                      ) 
                     :
-                    (
-                      <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
-                        <a href={item.href} className="hover:text-secondary transition-colors">{item.title}</a>
-                      </div>
-                    )
+                      (
+                        <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
+                          <a href={item.href} className="hover:text-secondary transition-colors">{item.title}</a>
+                        </div>
+                      )
                   }
                   </>
                 )

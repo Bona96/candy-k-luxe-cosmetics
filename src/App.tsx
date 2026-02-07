@@ -57,7 +57,6 @@ const App: React.FC = () => {
       className='relative overflow-auto'
     >
       <div className="bg-brand-bg space-y-0">
-        <CustomCursor />
         <Navbar />
         <Hero />
         <Media />
@@ -73,7 +72,8 @@ const App: React.FC = () => {
         <Footer footerInfo={footerData}/>
         
         {/* Grain Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        {/* <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /> */}
+        <CustomCursor />
       </div>
     </ReactLenis>
   );

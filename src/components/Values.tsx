@@ -6,7 +6,7 @@ const Values = () => {
   
   return (
     <section id="values" className="p-6 bg-brand-bg">
-        <div className="overflow-hidden overflow-y-auto h-100 max-w-7xl mx-auto">
+        <div className="overflow-hidden overflow-y-auto h-190 max-w-7xl mx-auto">
             <LandingPageSectionHeader
                 heading="The Glossy Standard"
                 tagline="Built on Substance • Shined to Perfection"

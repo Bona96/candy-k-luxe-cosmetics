@@ -34,23 +34,24 @@ const Footer: React.FC<FooterProps> = ({footerInfo}) => {
               {/* Quick Links */}
               {footerInfo.quickLinks.map((item) => {
                 return (
-                  <>
-                  {item.title === 'Privacy Policy' 
-                    ? (
-                        <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
-                          <button onClick={() => setPrivacyPolicyModal(true)} className="hover:text-secondary transition-colors">
+                  <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
+                    {item.title === 'Privacy Policy' 
+                      ? (
+                          <button 
+                            onClick={() => setPrivacyPolicyModal(true)} 
+                            className="hover:text-secondary transition-colors"
+                          >
                             {item.title}
                           </button>
-                        </div>
-                      ) 
-                    :
-                      (
-                        <div key={item.id} className="flex gap-10 text-sm font-medium text-brand-text/60">
-                          <a href={item.href} className="hover:text-secondary transition-colors">{item.title}</a>
-                        </div>
-                      )
-                  }
-                  </>
+                        ) 
+                      :
+                        (
+                          <a href={item.href} className="hover:text-secondary transition-colors">
+                            {item.title}
+                          </a>
+                        )
+                    }
+                  </div>
                 )
               })}
             </div>

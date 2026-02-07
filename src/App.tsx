@@ -54,9 +54,8 @@ const App: React.FC = () => {
         touchMultiplier: 2,   // Makes touch scrolling feel natural
         wheelMultiplier: 1,
       }}
-      className='relative overflow-auto'
     >
-      <div className="bg-brand-bg space-y-0">
+      <div className="relative overflow-auto bg-brand-bg space-y-0">
         <Navbar />
         <Hero />
         <Media />

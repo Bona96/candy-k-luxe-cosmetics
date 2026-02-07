@@ -25,12 +25,12 @@ const Hero = () => {
       </div>
 
       {/* Reusable Slider Layer (Layer 2 & 3 Combined) */}
-      <div className="relative z-99 w-full h-full">
+      <div className="relative z-10 w-full h-full">
         <Slider />
       </div>
 
       {/* Luxe Vignette Overlay to focus the center */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_20%,var(--brand-bg)_100%)] opacity-60" />
+      <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle,transparent_20%,var(--brand-bg)_100%)] opacity-60" />
     </section>
   );
 };

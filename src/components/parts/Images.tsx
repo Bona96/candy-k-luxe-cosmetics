@@ -31,7 +31,7 @@ export const GlobalImage: React.FC<ImageData> = ({ src, alt, animate, transition
               animate={animate}
               transition={transition}
               className={`${
-                page === 'footer' 
+                page === 'footer' || page === 'media' 
                     ? className
                     : globalImageClassName
             }`}

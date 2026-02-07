@@ -12,8 +12,13 @@ import Media from './components/Media'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import { StackingSection } from './components/ScrollSections'
+import AboutCandyK from './pages/AboutCandyK'
+import { footerData } from './assets/constants'
+import { useGlobalContext } from './contexts/GlobalContext'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 const App: React.FC = () => {
+  // const {privacyPolicyModal, setPrivacyPolicyModal} = useGlobalContext()
   const SmoothScroll = () => {
     useEffect(() => {
       const lenis = new Lenis({
@@ -27,7 +32,7 @@ const App: React.FC = () => {
         lenis.raf(time)
         requestAnimationFrame(raf)
       }
-
+      console.log(lenis)
       requestAnimationFrame(raf)
       return () => lenis.destroy()
     }, [])
@@ -41,29 +46,27 @@ const App: React.FC = () => {
       <Navbar />
       <Hero />
       <Media />
-      {/* The following sections stack on top of each other */}
+      <AboutCandyK />
       <StackingSection index={1}>
         <MissionVision3D />
-      </StackingSection>
-
+      </StackingSection> 
+      {/* The following sections stack on top of each other */}
       <StackingSection index={2}>
         <Values />
       </StackingSection>
-
       <StackingSection index={3}>
         <Goals />
       </StackingSection>
-
-      <StackingSection index={3}>
+      <StackingSection index={4}>
         <Manifesto />
       </StackingSection>
-
-      <StackingSection index={4}>
+      
+      <StackingSection index={5}>
         <Contact />
       </StackingSection>
-      <Footer />
+      <Footer footerInfo={footerData}/>
       {/* Optional: Add a subtle grain overlay for a film-like texture */}
-      <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
   );
 };

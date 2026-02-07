@@ -44,9 +44,7 @@ export const LuxurySection = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-
-
-export const StackingSection = ({ children }: StackingProps) => {
+export const StackingSection = ({ children, index }: StackingProps) => {
   const container = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -59,17 +57,30 @@ export const StackingSection = ({ children }: StackingProps) => {
   // 2. It dims (opacity 0.5)
   // 3. It tilts slightly back (rotateX)
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
   return (
-    <div ref={container} className="h-screen w-full sticky top-0 overflow-hidden">
+    <div ref={container} className={`h-screen w-full sticky top-0 overflow-hidden border-2
+      ${index === 1
+        ? 'border-secondary'
+        : index === 2
+            ? 'border-primary'
+            : index === 3
+                ? 'border-secondary'
+                : index === 4
+                    ? 'border-primary'
+                    : index === 5
+                        ? 'border-secondary'
+                        : ''
+      } rounded-2xl
+    `}>
       <motion.div 
         style={{ 
           scale, 
           opacity, 
           rotateX,
-          transformOrigin: "top center",
+          transformOrigin: "left center",
           perspective: "1000px" 
         }}
         className="w-full h-full flex items-center justify-center bg-brand-bg shadow-[0_-20px_50px_rgba(0,0,0,0.2)]"

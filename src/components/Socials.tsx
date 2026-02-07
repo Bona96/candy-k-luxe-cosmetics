@@ -1,22 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 // import { X } from 'lucide-react'; // TikTok often uses MessageCircle or a custom SVG
-import {
-    FaInstagram as Instagram,
-    FaTiktok as Tiktok,
-    FaWhatsapp as Whatsapp,
-} from 'react-icons/fa6'
-interface SocialLink {
-  name: string;
-  href: string;
-  icon: React.ReactNode;
-}
-
-const socialData: SocialLink[] = [
-  { name: 'Instagram', href: 'https://www.instagram.com/candy_k_luxe_cosmetics/', icon: <Instagram size={20} /> },
-  { name: 'TikTok', href: '#', icon: <Tiktok size={20} />}, // Custom stylized T
-  { name: 'Whatsapp', href: '#', icon: <Whatsapp size={20} /> },
-];
+import { socialData } from '../assets/constants';
+import type { SocialLink } from '../types/types';
 
 const SocialIcon = ({ link }: { link: SocialLink }) => {
   return (

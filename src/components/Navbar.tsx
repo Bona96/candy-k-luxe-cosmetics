@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
     { name: 'Goals', href: '#goals' },
     { name: 'Order Now', href: '#contact' }
   ];
-
+  console.log(mobileMenuOpen)
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
+    <nav className={`fixed top-0 w-full z-100 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
       <div className="container mx-auto px-4">
         <div className={`
           flex items-center justify-between px-6 py-3 rounded-full
@@ -36,18 +36,14 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
+            <ThemeToggle />
+            <Socials />
           </div>
 
           {/* Actions */}
-          
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            {/* <button className="hidden sm:block bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg">
-              SHOP GLOSS
-            </button> */}
-            <Socials />
+          <div className="md:hidden flex items-center gap-4">
             <button 
-              className="md:hidden text-brand-text" 
+              className="text-brand-text" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,15 +55,16 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
-             <div className="flex flex-col gap-6 text-center">
-                {navLinks.map((link) => (
-                  <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-semibold">{link.name}</a>
-                ))}
-                <button className="bg-secondary text-white py-4 rounded-2xl font-bold">SHOP NOW</button>
-             </div>
-             <Socials />
-             <ThemeToggle />
+          <div className="absolute top-36  left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
+            <div className="flex flex-col overflow-hidden overflow-y-scroll gap-3 items-center">
+              <Logo />
+              {navLinks.map((link) => (
+                <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-semibold">{link.name}</a>
+              ))}
+              <button className="max-w-xl px-6 text-sm bg-secondary text-white py-4 rounded-2xl font-bold">SHOP NOW</button>
+              <Socials />
+              <ThemeToggle />
+            </div>
           </div>
         )}
       </div>

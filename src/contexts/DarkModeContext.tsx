@@ -1,13 +1,5 @@
 import React, { createContext, useCallback, useEffect, useMemo, useState, useContext } from 'react';
-
-type Theme = 'light' | 'dark';
-
-type DarkModeContextType = {
-  theme: Theme;
-  isScrolled: boolean;
-  toggleTheme: () => void;
-  setTheme: (t: Theme) => void;
-};
+import type { DarkModeContextType, Theme } from '../types/types';
 
 export const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined);
 

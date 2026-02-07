@@ -1,35 +1,22 @@
 import { motion } from "framer-motion";
 import { containerVariants, values } from "../assets/constants";
-import { LuxurySection } from "./ScrollSections";
+import { LandingPageSectionHeader } from "./parts/Headers";
 
 const Values = () => {
   
   return (
-    <LuxurySection>
-        <section id="values" className="py-24 px-6 bg-brand-bg">
+    <section id="values" className="p-6 bg-brand-bg">
         <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-            <motion.h2 
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="text-primary font-black text-4xl md:text-5xl lg:text-6xl tracking-tight"
-            >
-                The Glossy Standard
-            </motion.h2>
-            <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="text-secondary font-medium tracking-[0.2em] mt-4 uppercase text-sm"
-            >
-                Built on Substance • Shined to Perfection
-            </motion.p>
-            </div>
+            <LandingPageSectionHeader
+                heading="The Glossy Standard"
+                tagline="Built on Substance • Shined to Perfection"
+            />
             <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-8"
             >
                 {values.map((v, i) => (
                     <motion.div
@@ -44,8 +31,7 @@ const Values = () => {
                 ))}
             </motion.div>
         </div>
-        </section>
-    </LuxurySection>
+    </section>
   );
 };
 

@@ -34,18 +34,18 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6"
             >
-            <h2 className="text-5xl md:text-6xl font-black text-brand-text leading-tight">
-                Let's Make You <br />
-                <span className="text-secondary italic">Shine Boldly.</span>
-            </h2>
-            <p className="text-lg text-brand-text/70 max-w-md">
-                Have questions about our shades or wholesale opportunities? 
-                Reach out and our professional team will get back to you.
-            </p>
-            <div className="pt-4">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary">Uganda • International</p>
-                <p className="text-brand-text/60">contact@candykluxe.com</p>
-            </div>
+                <h2 className="text-5xl md:text-6xl font-black text-brand-text leading-tight">
+                    Let's Make You <br />
+                    <span className="text-secondary italic">Shine Boldly.</span>
+                </h2>
+                <p className="text-lg text-brand-text/70 max-w-md">
+                    Have questions about our shades or wholesale opportunities? 
+                    Reach out and we will get back to you.
+                </p>
+                <div className="pt-4">
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary">From Uganda • To the World</p>
+                    {/* <p className="text-brand-text/60">contact@candykluxe.com</p> */}
+                </div>
             </motion.div>
 
             {/* Form Side */}
@@ -72,7 +72,7 @@ const Contact = () => {
                 <button 
                 type="submit" 
                 disabled={isSending}
-                className="w-full py-4 bg-primary hover:bg-secondary text-white font-black rounded-2xl transition-all shadow-xl disabled:opacity-50"
+                className="w-full py-4 bg-secondary hover:bg-primary text-white font-black rounded-2xl transition-all shadow-xl disabled:opacity-50"
                 >
                 {isSending ? "SENDING..." : "SEND MESSAGE"}
                 </button>

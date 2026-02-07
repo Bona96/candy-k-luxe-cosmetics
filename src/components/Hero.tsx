@@ -25,7 +25,7 @@ const Hero = () => {
       </div>
 
       {/* Reusable Slider Layer (Layer 2 & 3 Combined) */}
-      <div className="relative z-10 w-full h-full">
+      <div className="relative z-99 w-full h-full">
         <Slider />
       </div>
 

@@ -14,7 +14,7 @@ const MissionVision3D = () => {
 
   return (
     <section ref={containerRef} id="mission" className="h-screen flex items-center justify-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-3 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-20 mb-10 lg:mb-2 items-center">
             <motion.div style={{ y: yLeft }} className="p-10 rounded-[3rem] bg-surface border border-primary/20 shadow-2xl">
                 <h2 className="text-secondary font-black text-4xl mb-4">Our Mission</h2>
                 <p className="text-xl leading-relaxed opacity-80">

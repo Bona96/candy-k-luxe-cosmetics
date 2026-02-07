@@ -6,7 +6,7 @@ const Values = () => {
   
   return (
     <section id="values" className="p-6 bg-brand-bg">
-        <div className="max-w-7xl mx-auto">
+        <div className="overflow-hidden overflow-y-auto h-100 max-w-7xl mx-auto">
             <LandingPageSectionHeader
                 heading="The Glossy Standard"
                 tagline="Built on Substance • Shined to Perfection"
@@ -16,7 +16,7 @@ const Values = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
                 {values.map((v, i) => (
                     <motion.div

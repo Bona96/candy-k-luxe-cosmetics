@@ -23,7 +23,7 @@ type LandingPageSectionHeaderProps = {
 }
 export const LandingPageSectionHeader: React.FC<LandingPageSectionHeaderProps> = ({ heading, tagline }) => {
     return (
-        <div className=" mt-40 md:mt-16 lg:mt-5 text-center mb-16">
+        <div className="mt-10 md:mt-16 lg:mt-5 text-center mb-16">
             <motion.h2 
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}

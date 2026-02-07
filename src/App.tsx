@@ -1,11 +1,6 @@
 import './App.css'
-import React, { useEffect, useRef } from 'react'
-import { ReactLenis } from 'lenis/react'
-import type { LenisRef } from 'lenis/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// ... (your other imports)
+import React, { useEffect } from 'react'
+import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Values from './components/Values'
@@ -19,63 +14,101 @@ import Footer from './components/Footer'
 import { StackingSection } from './components/ScrollSections'
 import AboutCandyK from './pages/AboutCandyK'
 import { footerData } from './assets/constants'
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGlobalContext } from './contexts/GlobalContext'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 const App: React.FC = () => {
-  const lenisRef = useRef<LenisRef>(null)
-
-  useEffect(() => {
-    // 1. Link Lenis to GSAP's Ticker
-    function update(time: number) {
-      lenisRef.current?.lenis?.raf(time * 1000)
-    }
-
-    gsap.ticker.add(update)
-    gsap.ticker.lagSmoothing(0)
-
-    // 2. Ensure ScrollTrigger updates when Lenis scrolls
-    lenisRef.current?.lenis?.on('scroll', ScrollTrigger.update)
-
-    return () => {
-      gsap.ticker.remove(update)
-    }
-  }, [])
-
-  return (
-    // Add "lenis-content" or similar class if needed, but 'root' usually handles it
-    <ReactLenis 
-      ref={lenisRef} 
-      root 
-      options={{ 
-        autoRaf: false, 
+  // const {privacyPolicyModal, setPrivacyPolicyModal} = useGlobalContext()
+  const SmoothScroll = () => {
+    useEffect(() => {
+      const lenis = new Lenis({
         duration: 1.2,
-        syncTouch: true,      // Essential for mobile responsiveness
-        touchMultiplier: 2,   // Makes touch scrolling feel natural
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         wheelMultiplier: 1,
-      }}
-    >
-      <div className="relative overflow-auto bg-brand-bg space-y-0">
-        <Navbar />
-        <Hero />
-        <Media />
-        <AboutCandyK />
-        
-        {/* Your Stacking Sections */}
-        <StackingSection index={1}><MissionVision3D /></StackingSection> 
-        <StackingSection index={2}><Values /></StackingSection>
-        <StackingSection index={3}><Goals /></StackingSection>
-        <StackingSection index={4}><Manifesto /></StackingSection>
-        <StackingSection index={5}><Contact /></StackingSection>
-        
-        <Footer footerInfo={footerData}/>
-        
-        {/* Grain Overlay */}
-        {/* <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /> */}
-        <CustomCursor />
-      </div>
-    </ReactLenis>
+        infinite: false,
+      })
+
+      function raf(time: number) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+      console.log(lenis)
+      requestAnimationFrame(raf)
+      return () => lenis.destroy()
+    }, [])
+
+    return null
+  }
+  return (
+    <div className="relative bg-brand-bg space-y-0">
+      <SmoothScroll />
+      <CustomCursor />
+      <Navbar />
+      <Hero />
+      <Media />
+      <AboutCandyK />
+      <StackingSection index={1}>
+        <MissionVision3D />
+      </StackingSection> 
+      {/* The following sections stack on top of each other */}
+      <StackingSection index={2}>
+        <Values />
+      </StackingSection>
+      <StackingSection index={3}>
+        <Goals />
+      </StackingSection>
+      <StackingSection index={4}>
+        <Manifesto />
+      </StackingSection>
+      
+      <StackingSection index={5}>
+        <Contact />
+      </StackingSection>
+      <Footer footerInfo={footerData}/>
+      {/* Optional: Add a subtle grain overlay for a film-like texture */}
+      <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    </div>
   );
 };
 
 export default App;
+
+// const App = () => {
+
+//   // Add this to your main layout or App.tsx
+//   const SmoothScroll = () => {
+//     useEffect(() => {
+//       const lenis = new Lenis({
+//         duration: 1.2,
+//         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//         wheelMultiplier: 1,
+//         infinite: false,
+//       })
+
+//       function raf(time: number) {
+//         lenis.raf(time)
+//         requestAnimationFrame(raf)
+//       }
+
+//       requestAnimationFrame(raf)
+//       return () => lenis.destroy()
+//     }, [])
+
+//     return null
+//   }
+//   return (
+//     <div className='relative flex flex-col justify-center items-center min-h-screen py-2'>
+//       {/* <h1>Candy K</h1> */}
+//       <Navbar />
+//       <Hero />
+//       <MissionVision3D />
+//       <FadeInSection>
+//         <Values />
+//       </FadeInSection>
+//       <Goals />
+//       <Manifesto />
+//     </div>
+//   )
+// }
+
+// export default App

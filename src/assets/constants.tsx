@@ -15,15 +15,17 @@ import logoTransparent from '../assets/images/candy-k-logo-bg-transparent.png'
 import PriceList from "../assets/images/candy-k-product-price-list.jpg"
 //Images of product
 
-import Product1 from '../assets/images/candy-k-product-1.jpg'
-import Product2 from '../assets/images/candy-k-product-2.jpg'
+import ColorCraze1 from '../assets/images/candy-k-product-color-craze-1.jpg'
 import Product3 from '../assets/images/candy-k-product-3.jpg'
 // import Product4 from '../assets/images/candy-k-product-4.jpg'
 // import Product5 from '../assets/images/candy-k-product-5.jpg'
 import Product6 from '../assets/images/candy-k-product-6.jpg'
 // import Product7 from '../assets/images/candy-k-product-7.jpg'
 // import Product8 from '../assets/images/candy-k-product-8.jpg'
-import Product9 from '../assets/images/candy-k-product-9.jpg'
+// import RedBombShellLipgloss1 from '../assets/images/candy-k-redbombshell-lipgloss-1.jpg'
+import RedBombShellLipgloss2 from '../assets/images/candy-k-redbombshell-lipgloss-2.jpg'
+import RedBombShellLipgloss3 from '../assets/images/candy-k-redbombshell-lipgloss-3.jpg'
+
 // import Product10 from '../assets/images/candy-k-product-10.jpg'
 // import Product11 from '../assets/images/candy-k-product-11.jpg'
 import Product12 from '../assets/images/candy-k-product-12.jpg'
@@ -98,12 +100,12 @@ export const default3DGalleryItems = [
 ];
 export const threeDGalleryItems = [
     {
-        image: Product1,
-        text: 'Lip Gloss'
+        image: ColorCraze1,
+        text: 'Color craze (color changing lipgloss)'
     },
     {
         image: PesronWithProduct2,
-        text: 'Gloss Charm'
+        text: 'Pocket Mirrors'
     },
     {
         image: Product3,
@@ -113,13 +115,17 @@ export const threeDGalleryItems = [
         image: Product12,
         text: 'Lip Liner'
     },
+    // {
+    //     image: RedBombShellLipgloss1,
+    //     text: 'Redbombshell Lipgloss'
+    // },
     {
-        image: Product2,
-        text: 'Gloss Charm'
+        image: RedBombShellLipgloss2,
+        text: 'Redbombshell Lipgloss'
     },
     {
-        image: Product9,
-        text: 'Truffle Gloss Charm'
+        image: RedBombShellLipgloss3,
+        text: 'Redbombshell Lipgloss'
     },
     {
         image: Product6,
@@ -127,7 +133,7 @@ export const threeDGalleryItems = [
     },
     {
         image: PesronWithProductDisplay1,
-        text: 'Multiple shades and Flavours'
+        text: 'Gloss shopping spree'
     },
 ]
 export const slides: SlideData[] = [

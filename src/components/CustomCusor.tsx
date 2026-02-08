@@ -24,12 +24,12 @@ const CustomCursor = () => {
     <>
       {/* The Main Glow */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full bg-secondary/40 blur-md pointer-events-none z-40 mix-blend-difference"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full bg-secondary/40 blur-md pointer-events-none -z-99 mix-blend-difference"
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
       />
       {/* The Center Point */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-40"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-99"
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
       />
     </>

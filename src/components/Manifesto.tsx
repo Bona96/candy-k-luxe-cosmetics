@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Manifesto = () => {
   return (
-    <section className="h-screen py-32 bg-brand-bg text-center px-6 relative overflow-hidden">
+    <section className="h-screen pt-60 lg:pt-20 bg-brand-bg text-center px-6 relative overflow-hidden">
       {/* Glossy Overlay Effect */}
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_20%,var(--primary),transparent)]" />
       

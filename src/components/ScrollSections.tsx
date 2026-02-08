@@ -58,32 +58,26 @@ export const StackingSection = ({ children, index }: StackingProps) => {
   // 3. It tilts slightly back (rotateX)
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  // const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
   return (
-    <div ref={container} className={`h-screen w-full sticky top-0 border-2
-      ${index === 1
-        ? 'border-secondary'
-        : index === 2
-            ? 'border-primary'
-            : index === 3
-                ? 'border-secondary'
-                : index === 4
-                    ? 'border-primary'
-                    : index === 5
-                        ? 'border-secondary'
-                        : ''
-      } rounded-2xl
-    `}>
+    <div 
+      ref={container} 
+      // min-h-screen allows the div to be as tall as your long list
+      className={`min-h-screen w-full sticky top-0 border-2 rounded-2xl overflow-hidden
+        ${index % 2 === 0 ? 'border-primary' : 'border-secondary'}
+      `}
+    >
       <motion.div 
         style={{ 
           scale, 
           opacity, 
-          rotateX,
-          transformOrigin: "left center",
-          perspective: "1000px" 
+          transformOrigin: "top center",
+          // CRITICAL: Allow the browser to handle vertical touch/pan
+          touchAction: 'pan-y' 
         }}
-        className="w-full h-full flex items-center justify-center bg-brand-bg shadow-[0_-20px_50px_rgba(0,0,0,0.2)]"
+        // Remove items-center to let the list start from the top
+        className="data-lenis-prevent w-full min-h-screen flex flex-col justify-start bg-brand-bg shadow-[0_-20px_50px_rgba(0,0,0,0.2)]"
       >
         {children}
       </motion.div>

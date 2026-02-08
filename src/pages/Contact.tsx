@@ -26,7 +26,7 @@ const Contact = () => {
   return (
     <LuxurySection>
         <section id="contact" className="h-screen py-24 px-6 bg-brand-bg relative">
-            <div className="data-lenis-prevent overflow-hidden overflow-y-auto h-120 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="data-lenis-prevent overflow-hidden overflow-y-auto h-200 lg:h-100 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 {/* Brand Side */}
                 <motion.div 
                     initial={{ opacity: 0, x: -30 }}
@@ -54,26 +54,26 @@ const Contact = () => {
                     className="bg-surface/30 backdrop-blur-2xl p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl"
                 >
                 <form ref={form} onSubmit={sendEmail} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider px-2">Name</label>
-                        <input type="text" name="user_name" required className="w-full bg-brand-bg/50 border border-white/10 rounded-2xl px-4 py-3 focus:border-secondary outline-none transition-all" />
+                    <div className="flex flex-row flex-wrap gap-6">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-xs font-bold uppercase tracking-wider px-2">Name</label>
+                            <input type="text" name="user_name" required className="w-auto bg-brand-bg/50 border border-primary dark:border-secondary rounded-2xl px-2 py-3 focus:border-secondary outline-none transition-all" />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-xs font-bold uppercase tracking-wider px-2">Email</label>
+                            <input type="email" name="user_email" required className="w-auto bg-brand-bg/50 border border-primary dark:border-secondary rounded-2xl px-2 py-3 focus:border-secondary outline-none transition-all" />
+                        </div>
                     </div>
-                    <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider px-2">Email</label>
-                        <input type="email" name="user_email" required className="w-full bg-brand-bg/50 border border-white/10 rounded-2xl px-4 py-3 focus:border-secondary outline-none transition-all" />
-                    </div>
-                    </div>
-                    <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-wider px-2">Message</label>
-                    <textarea name="message" rows={4} required className="w-full bg-brand-bg/50 border border-white/10 rounded-2xl px-4 py-3 focus:border-secondary outline-none transition-all resize-none" />
+                    <div className="flex flex-col gap-2">
+                        <label className="text-xs font-bold uppercase tracking-wider px-2">Message</label>
+                        <textarea name="message" rows={4} required className="w-full bg-brand-bg/50 border border-primary dark:border-secondary rounded-2xl px-4 py-3 focus:border-secondary outline-none transition-all resize-none" />
                     </div>
                     <button 
-                    type="submit" 
-                    disabled={isSending}
-                    className="w-full py-4 bg-secondary hover:bg-primary text-white font-black rounded-2xl transition-all shadow-xl disabled:opacity-50"
+                        type="submit" 
+                        disabled={isSending}
+                        className="w-full py-4 bg-secondary hover:bg-primary text-white font-black rounded-2xl transition-all shadow-xl disabled:opacity-50"
                     >
-                    {isSending ? "SENDING..." : "SEND MESSAGE"}
+                        {isSending ? "SENDING..." : "SEND MESSAGE"}
                     </button>
                 </form>
                 </motion.div>

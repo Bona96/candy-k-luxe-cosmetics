@@ -12,12 +12,12 @@ const Hero = () => {
   return (
     <section id='hero' className="relative h-screen w-full overflow-hidden bg-brand-bg">
       {/* Background Layer: Ballpit */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 ">
         <Ballpit 
-          count={100} 
+          count={200} 
           // The Ballpit now re-renders or updates colors when the theme shifts
           colors={theme === 'light' ? lightModeColors : darkModeColors}
-          gravity={0.01} 
+          gravity={0.1} 
           friction={0.9975} 
           wallBounce={0.95} 
           followCursor={false} 
@@ -25,7 +25,7 @@ const Hero = () => {
       </div>
 
       {/* Reusable Slider Layer (Layer 2 & 3 Combined) */}
-      <div className="relative z-10 w-full h-full">
+      <div className=" absolute z-50 w-full h-full">
         <Slider />
       </div>
 

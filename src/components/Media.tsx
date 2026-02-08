@@ -1,8 +1,13 @@
 import CircularGallery from '../assets/3d/CircularGallery'
 import { CandyKPriceList, PesronWearingLipGloss, threeDGalleryItems } from '../assets/constants'
+import { useDarkMode } from '../contexts/DarkModeContext'
 import { GlobalImage } from './parts/Images'
 
 const Media = () => {
+    const { theme } = useDarkMode()
+    const bend = 1
+    console.log(theme)
+    const galleryTextColor = theme === 'light' ? 'text-primary' : '#ffff'
     return (
         <section className=''>
             <div className="flex flex-row flex-wrap gap-10 items-center justify-center mb-5">
@@ -30,9 +35,9 @@ const Media = () => {
             <div id="gallery" className='h-150 relative'>
                 <CircularGallery
                     items={threeDGalleryItems}
-                    textColor="#ffffff" 
+                    textColor={galleryTextColor}
                     borderRadius={0.05}
-                    bend={3}
+                    bend={bend}
                     scrollSpeed={1.9}
                     scrollEase={0.05}
                 />

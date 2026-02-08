@@ -36,7 +36,7 @@ const AboutCandyK = () => {
                     <motion.div style={{ y: yLeft }} className="p-10 rounded-[3rem] bg-surface border border-primary/20 shadow-2xl">
                         <h2 className="text-secondary font-black text-4xl mb-4">About Candy K</h2>
                         <p className="text-lg leading-relaxed opacity-80">
-                            Formerly known as Candy K Beauty, Candy K Luxe Cosmetics was officially registered on Decemver 2025 under te Business Name Registration Act and rules made there under.
+                            Formerly known as Candy K Beauty, Candy K Luxe Cosmetics was officially registered on December 2025 under the Business Name Registration Act and rules made there under.
                         </p>
                         <section className="flex items-center">
                             <motion.img

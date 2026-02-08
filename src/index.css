@@ -41,16 +41,31 @@ html.lenis {
   height: auto;
 }
 
-.lenis.lenis-smooth {
+.lenis-smooth {
   scroll-behavior: auto !important;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
+.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
 
-.lenis.lenis-stopped {
+.lenis-stopped {
   overflow: hidden;
+}
+/* Ensure the wrapper doesn't crop the list */
+.lenis-content {
+  height: auto !important;
+}
+/* for stacked components */
+.sticky {
+  /* Prevents "glitching" where sections look like they are vibrating on mobile */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /* Prevent the container from trapping clicks on inner elements */
+  pointer-events: none;
 }
 
 /* Glass Reflection Effect */

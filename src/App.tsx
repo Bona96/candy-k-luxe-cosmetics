@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 // import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -16,57 +16,38 @@ import AboutCandyK from './pages/AboutCandyK'
 import { footerData } from './assets/constants'
 // import { useGlobalContext } from './contexts/GlobalContext'
 // import PrivacyPolicy from './pages/PrivacyPolicy'
-
-import { ReactLenis } from 'lenis/react'
-import type { LenisRef } from 'lenis/react'
+import { ReactLenis, useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// ... (your other imports)
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
-  const lenisRef = useRef<LenisRef>(null)
-
-  useEffect(() => {
-    // 1. Link Lenis to GSAP's Ticker
-    function update(time: number) {
-      lenisRef.current?.lenis?.raf(time * 1000)
-    }
-
-    gsap.ticker.add(update)
-    gsap.ticker.lagSmoothing(0)
-
-    // 2. Ensure ScrollTrigger updates when Lenis scrolls
-    lenisRef.current?.lenis?.on('scroll', ScrollTrigger.update)
-
-    return () => {
-      gsap.ticker.remove(update)
-    }
-  }, [])
+  // This hook automatically syncs Lenis scroll with GSAP ScrollTrigger
+  useLenis(() => {
+    ScrollTrigger.update();
+  });
 
   return (
-    // Add "lenis-content" or similar class if needed, but 'root' usually handles it
     <ReactLenis 
-      ref={lenisRef} 
       root 
       options={{ 
-        autoRaf: false, 
+        // autoRaf: true (default) is much safer for mobile
         duration: 1.2,
-        syncTouch: true,      // Essential for mobile responsiveness
-        touchMultiplier: 2,   // Makes touch scrolling feel natural
-        wheelMultiplier: 1,
+        syncTouch: true,      // Intercepts touch for smoothing
+        touchMultiplier: 1.5, // Natural mobile speed
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
       }}
     >
-      <div className="bg-brand-bg space-y-0">
+      <div className="flex flex-col justify-center bg-brand-bg relative min-h-screen">
         <CustomCursor />
         <Navbar />
         <Hero />
         <Media />
         <AboutCandyK />
         
-        {/* Your Stacking Sections */}
+        {/* Sections */}
         <StackingSection index={1}><MissionVision3D /></StackingSection> 
         <StackingSection index={2}><Values /></StackingSection>
         <StackingSection index={3}><Goals /></StackingSection>
@@ -75,7 +56,7 @@ const App: React.FC = () => {
         
         <Footer footerInfo={footerData}/>
         
-        {/* Grain Overlay */}
+        {/* Grain Overlay - Ensure z-index is lower than buttons */}
         <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
     </ReactLenis>

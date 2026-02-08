@@ -53,7 +53,7 @@ export const SliderNavBtns: React.FC<SliderNavBtnProps> = ({ prevSlide, nextSlid
     <motion.section
       className='absolute left-60 bottom-5 flex justify-between gap-4'
     >
-      <div className="right-10 flex gap-4 z-99">
+      <div className="right-10 flex gap-4 z-50">
         <button 
           onClick={prevSlide}
           className="w-12 h-12 rounded-full border border-secondary/30 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all backdrop-blur-md"

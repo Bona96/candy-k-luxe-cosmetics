@@ -56,11 +56,11 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-36  left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
+          <div className="absolute top-36 left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
             <div className="flex flex-col overflow-hidden overflow-y-scroll gap-3 items-center">
-              <Logo />
+              {/* <Logo /> */}
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-semibold">{link.name}</a>
+                <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold">{link.name}</a>
               ))}
               <button className="max-w-xl px-6 text-sm bg-secondary text-white py-4 rounded-2xl font-bold">SHOP NOW</button>
               <Socials />

@@ -8,8 +8,9 @@ const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isScrolled } = useDarkMode()
   const navLinks = [
-    { name: 'Mission', href: '#mission' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'About', href: '#about-candy-k' },
+    { name: 'Mission', href: '#mission' },
     { name: 'Values', href: '#values' },
     { name: 'Goals', href: '#goals' },
     { name: 'Order Now', href: '#contact' }

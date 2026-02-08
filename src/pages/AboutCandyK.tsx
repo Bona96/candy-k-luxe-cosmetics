@@ -16,7 +16,7 @@ const AboutCandyK = () => {
     const yRight = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
     return (
-        <section ref={containerRef} id="mission" className="relative min-h-screen flex flex-col flex-wrap items-center justify-center overflow-hidden">
+        <section ref={containerRef} id="about-candy-k" className="relative min-h-screen flex flex-col flex-wrap items-center justify-center overflow-hidden">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0">
                 <Beams

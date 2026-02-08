@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   ];
   console.log(mobileMenuOpen)
   return (
-    <nav className={`fixed top-10 w-full z-999 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
+    <nav className={`fixed top-2 lg:top-10 w-full z-999 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
       <div className="container mx-auto px-4">
         <div className={`
           flex items-center justify-between px-6 py-3 rounded-full
@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-36 left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
+          <div className="absolute top-34 left-4 right-4 bg-surface/95 backdrop-blur-2xl rounded-3xl p-8 border border-secondary/20 md:hidden animate-in fade-in slide-in-from-top-5">
             <div className="flex flex-col overflow-hidden overflow-y-scroll gap-3 items-center">
               {/* <Logo /> */}
               {navLinks.map((link) => (

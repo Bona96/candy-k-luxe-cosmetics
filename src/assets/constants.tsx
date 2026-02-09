@@ -3,7 +3,10 @@ import {
     FaTiktok as Tiktok,
     FaWhatsapp as Whatsapp,
 } from 'react-icons/fa6'
+
 import CandyK from '../assets/images/candy-k.jpg'
+import CandyKHoldingLipGloss from '../assets/images/candy-k-luxe-cosmetics-candy.jpeg'
+
 import LadyLookingAtProduct from './images/candy-k-lady-looking-at-product.jpg'
 import BlackWomanLipGlossBeauty from '../assets/images/candy-k-black-woman-lip-gloss-beauty.webp'
 // import MultipleProductDisplay from '../assets/images/candy-k-multiple-product-display.png'
@@ -23,20 +26,26 @@ import Product6 from '../assets/images/candy-k-product-6.jpg'
 // import Product7 from '../assets/images/candy-k-product-7.jpg'
 // import Product8 from '../assets/images/candy-k-product-8.jpg'
 // import RedBombShellLipgloss1 from '../assets/images/candy-k-redbombshell-lipgloss-1.jpg'
-import RedBombShellLipgloss2 from '../assets/images/candy-k-redbombshell-lipgloss-2.jpg'
-import RedBombShellLipgloss3 from '../assets/images/candy-k-redbombshell-lipgloss-3.jpg'
+// import RedBombShellLipgloss2 from '../assets/images/candy-k-redbombshell-lipgloss-2.jpg'
+import RedBombShellLipgloss1 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-1.jpeg'
+// import RedBombShellLipgloss2 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-2.jpg'
+// import RedBombShellLipgloss3 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-3.jpg'
+import RedBombShellLipgloss4 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-4.jpg'
+import RedBombShellLipgloss5 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-5.jpeg'
 
-// import Product10 from '../assets/images/candy-k-product-10.jpg'
-// import Product11 from '../assets/images/candy-k-product-11.jpg'
-import Product12 from '../assets/images/candy-k-product-12.jpg'
-// import Product13 from '../assets/images/candy-k-product-13.jpg'
-import Product14 from '../assets/images/candy-k-product-14.jpg'
+// import Product14 from '../assets/images/candy-k-product-14.jpg'
 
-import PesronWithProduct2 from '../assets/images/candy-k-person-with-product-2.jpg'
 import PesronWithProductDisplay1 from '../assets/images/candy-k-person-with-product-display-1.jpg'
 import PesronWearingProduct1 from '../assets/images/candy-k-person-wearing-lip-gloss-1.jpg'
+import PersonWithPocketMirror from '../assets/images/candy-k-person-with-pocket-mirror.jpeg'
+import LipLinerProduct1 from '../assets/images/candy-k-luxe-cosmetics-lip-liner-product.jpg'
+import LipLinerProduct2 from '../assets/images/candy-k-luxe-cosmetics-lip-liner-product-2.jpeg'
+// images for testimonials
+import HappyClient1 from '../assets/images/candy-k-luxe-cosmetics-happy-client-1.jpeg'
+import HappyClient2 from '../assets/images/candy-k-luxe-cosmetics-happy-client-2.jpeg'
+import HappyClient3 from '../assets/images/candy-k-luxe-cosmetics-happy-client-3.jpeg'
 
-import type { FooterDataProps, SlideData, SocialLink } from '../types/types';
+import type { FooterDataProps, SlideData, SocialLink, Testimonial } from '../types/types';
 
 export const LightModeLogo = logoWhite
 export const DarkModeLogo = logoTransparent
@@ -65,6 +74,37 @@ export const goals = [
     { year: "2028", task: "Gloss Charm Global", desc: "Expanding to international retail hubs." },
     { year: "2031", task: "Beauty Empire", desc: "A full line of innovative cosmetics." }
 ];
+// testimonials
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: "Isagara Lisa",
+    location: "Kampala",
+    quote: "The Gloss Charm is literally magic. It stays shiny for hours without that annoying sticky feeling. My new daily essential!",
+    shade: "Gloss Charm",
+    rating: 5,
+    avatar: HappyClient1
+  },
+  {
+    id: 2,
+    name: "Client 2",
+    location: "Entebbe",
+    quote: "Finally, a luxury brand that understands diverse skin tones. Purple Reign looks stunning on me. Absolute 10/10.",
+    shade: "Purple Reign",
+    rating: 5,
+    avatar: HappyClient2
+  },
+  {
+    id: 3,
+    name: "Client 3",
+    location: "Nairobi",
+    quote: "The packaging alone makes me feel like a queen. But the formula? It’s the smoothest application I’ve ever experienced.",
+    shade: "Luxe Tint",
+    rating: 5,
+    avatar: HappyClient3
+  }
+];
+
 export const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,6 +116,8 @@ export const cardVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1 }
 };
+
+// images and slides
 export const default3DGalleryItems = [
     {
         image: `https://picsum.photos/seed/1/800/600?grayscale`,
@@ -100,11 +142,23 @@ export const default3DGalleryItems = [
 ];
 export const threeDGalleryItems = [
     {
-        image: ColorCraze1,
-        text: 'Color craze (color changing lipgloss)'
+        image: Product6,
+        text: 'Gloss Charm multi-choice'
     },
     {
-        image: PesronWithProduct2,
+        image: RedBombShellLipgloss1,
+        text: 'Redbombshell Lipgloss'
+    },
+    {
+        image: RedBombShellLipgloss4,
+        text: 'Redbombshell Lipgloss'
+    },
+    {
+        image: RedBombShellLipgloss5,
+        text: 'Redbombshell Lipgloss'
+    },
+    {
+        image: PersonWithPocketMirror,
         text: 'Pocket Mirrors'
     },
     {
@@ -112,46 +166,43 @@ export const threeDGalleryItems = [
         text: 'Gloss Charm'
     },
     {
-        image: Product12,
-        text: 'Lip Liner'
+        image: LipLinerProduct1,
+        text: 'Lipliner'
+    },
+    {
+        image: LipLinerProduct2,
+        text: 'Lipliner'
     },
     // {
     //     image: RedBombShellLipgloss1,
     //     text: 'Redbombshell Lipgloss'
     // },
     {
-        image: RedBombShellLipgloss2,
-        text: 'Redbombshell Lipgloss'
-    },
-    {
-        image: RedBombShellLipgloss3,
-        text: 'Redbombshell Lipgloss'
-    },
-    {
-        image: Product6,
-        text: 'Gloss Charm multi-choice'
-    },
-    {
         image: PesronWithProductDisplay1,
         text: 'Gloss shopping spree'
     },
+    {
+        image: ColorCraze1,
+        text: 'Color craze (color changing lipgloss)'
+    },
 ]
+// slides for hero section
 export const slides: SlideData[] = [
   {
     id: 1,
     title: "Candy.K Luxe Cosmetics",
     tagline: "where beauty meets confidence and every pout is pampered",
     description: "We are passionate about creating high-quality lip products that celebrate beauty in all its forms",
-    image: LadyLookingAtProduct,
+    image: CandyKHoldingLipGloss,
     color: "var(--secondary)"
   },
   {
     id: 2,
     title: "Featured Products",
     tagline: "Your Lips, Your Power.",
-    description: "From nourishing lip glosses to lip scrubs, balms, collagen-infused lip masks and precision lip liners.",
+    description: "From nourishing lipgloss to lip scrubs, balms, collagen-infused lip masks and precision lip liners.",
     // description: "A luxury beauty brand committed to producing high-quality, elegant, and affordable cosmetic products designed for everyday confidence.",
-    image: Product14,
+    image: LadyLookingAtProduct,
     color: "var(--secondary)"
   },
   {
@@ -167,7 +218,7 @@ export const slides: SlideData[] = [
     title: "Lip Liners",
     tagline: "More than just lip gloss",
     description: "We also offer enhancing lip liners in a variety of shades, including black, brown, pink and more...",
-    image: Product12,
+    image: LipLinerProduct1,
     color: "var(--secondary)"
   },
   {
@@ -179,14 +230,13 @@ export const slides: SlideData[] = [
     color: "var(--primary)"
   }
 ];
-
-
-export const globalImageClassName = "mt-4 rounded-xl w-30 md:w-80 lg:w-70 shadow-xl shadow-secondary"
+// social links
 export const socialData: SocialLink[] = [
   { name: 'Instagram', href: 'https://www.instagram.com/candy_k_luxe_cosmetics/', icon: <Instagram size={20} /> },
-  { name: 'TikTok', href: '#', icon: <Tiktok size={20} />}, // Custom stylized T
-  { name: 'Whatsapp', href: '#', icon: <Whatsapp size={20} /> },
+  { name: 'TikTok', href: 'https://vm.tiktok.com/ZNRUTsLU7/', icon: <Tiktok size={20} />}, // Custom stylized T
+  { name: 'Whatsapp', href: 'https://wa.me/message/6TCE2JWDGTD4P1', icon: <Whatsapp size={20} /> },
 ];
+// footer data
 export const footerData: FooterDataProps = {
     logoBranding: {
         image: logoTransparent,
@@ -222,3 +272,6 @@ export const footerData: FooterDataProps = {
         designedbyLink: 'https://knihtdigitalsolutions.vercel.app'
     }
 }
+
+// css classname variables
+export const globalImageClassName = "mt-4 rounded-xl w-30 md:w-80 lg:w-70 shadow-xl shadow-secondary"

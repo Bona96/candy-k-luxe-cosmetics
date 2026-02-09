@@ -60,6 +60,17 @@ export interface StackingProps {
   children: React.ReactNode;
   index: number; // We need the index to stagger the "depth"
 }
+
+//testimonials
+export interface Testimonial {
+  id: number;
+  name: string;
+  location: string;
+  quote: string;
+  shade: string; // The specific product they used
+  rating: number;
+  avatar: string;
+}
 // socials
 export interface SocialLink {
   name: string;

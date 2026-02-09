@@ -14,7 +14,7 @@ const Hero = () => {
       {/* Background Layer: Ballpit */}
       <div className="absolute inset-0 ">
         <Ballpit 
-          count={200} 
+          count={100} 
           // The Ballpit now re-renders or updates colors when the theme shifts
           colors={theme === 'light' ? lightModeColors : darkModeColors}
           gravity={0.1} 
@@ -30,7 +30,7 @@ const Hero = () => {
       </div>
 
       {/* Luxe Vignette Overlay to focus the center */}
-      <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle,transparent_20%,var(--brand-bg)_100%)] opacity-60" />
+      <div className="absolute inset-0 z-20 pointer-events-none bg-radial-glow opacity-60" />
     </section>
   );
 };

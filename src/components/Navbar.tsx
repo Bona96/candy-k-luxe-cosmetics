@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   ];
   console.log(mobileMenuOpen)
   return (
-    <nav className={`fixed top-2 lg:top-10 w-full z-999 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
+    <nav className={`fixed top-2 lg:top-4 w-full z-999 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
       <div className="container mx-auto px-4">
         <div className={`
           flex items-center justify-between px-6 py-3 rounded-full

@@ -1,4 +1,3 @@
-import './App.css'
 import React from 'react'
 // import Lenis from 'lenis'
 import Navbar from './components/Navbar'
@@ -19,6 +18,7 @@ import { footerData } from './assets/constants'
 import { ReactLenis, useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Testimonials from './components/Testimonials'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,18 +46,18 @@ const App: React.FC = () => {
         <Hero />
         <Media />
         <AboutCandyK />
-        
         {/* Sections */}
-        <StackingSection index={1}><MissionVision3D /></StackingSection> 
-        <StackingSection index={2}><Values /></StackingSection>
-        <StackingSection index={3}><Goals /></StackingSection>
-        <StackingSection index={4}><Manifesto /></StackingSection>
-        <StackingSection index={5}><Contact /></StackingSection>
+        <StackingSection index={1}><Testimonials /></StackingSection>
+        <StackingSection index={2}><MissionVision3D /></StackingSection>
+        <StackingSection index={3}><Values /></StackingSection>
+        <StackingSection index={4}><Goals /></StackingSection>
+        <StackingSection index={5}><Manifesto /></StackingSection>
+        <StackingSection index={6}><Contact /></StackingSection>
         
         <Footer footerInfo={footerData}/>
         
         {/* Grain Overlay - Ensure z-index is lower than buttons */}
-        <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        {/* <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /> */}
       </div>
     </ReactLenis>
   );

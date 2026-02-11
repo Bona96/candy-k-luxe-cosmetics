@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Beams from "../assets/3d/Beams";
-// import { FadeInSection } from "./ScrollSections";
-import { Candy } from "../assets/constants";
 
 const AboutCandyK = () => {
     const containerRef = useRef(null);
@@ -11,56 +9,71 @@ const AboutCandyK = () => {
         offset: ["start end", "end start"]
     });
 
-    // Items move at different speeds for a 3D effect
-    const yLeft = useTransform(scrollYProgress, [0, 2], [20, 0]);
-    const yRight = useTransform(scrollYProgress, [0, 1], [0, 20]);
+    // Subtly different speeds for the 3D depth effect
+    const yLeft = useTransform(scrollYProgress, [0, 1], [40, -40]);
+    const yRight = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
     return (
-        <section ref={containerRef} id="about-candy-k" className="relative min-h-screen flex flex-col flex-wrap items-center justify-center overflow-hidden">
-            {/* 3D Background */}
-            <div className="absolute inset-0 z-0">
+        <section ref={containerRef} id="about-candy-k" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-bg">
+            
+            {/* 3D Background Beams */}
+            <div className="absolute inset-0 z-0 opacity-40">
                 <Beams
                     beamWidth={3}
                     beamHeight={30}
                     beamNumber={20}
                     lightColor="#ffffff"
-                    speed={2}
+                    speed={1.5}
                     noiseIntensity={1.75}
-                    scale={0.2}
-                    rotation={30}
+                    scale={0.3}
+                    rotation={25}
                 />
             </div>
+
             {/* Content Overlay */}
-            <div className="text-center px-4 pointer-events-none">
-                <div className="mt-20 mb-10 max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-20 items-center">
-                    <motion.div style={{ y: yLeft }} className="p-10 rounded-[3rem] bg-surface border border-primary/20 shadow-2xl">
-                        <h2 className="text-secondary font-black text-4xl mb-4">About Candy K</h2>
-                        <p className="text-lg leading-relaxed opacity-80">
-                            Formerly known as Candy K Beauty, Candy K Luxe Cosmetics was officially registered on December 2025 under the Business Name Registration Act and rules made there under.
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    
+                    {/* Card 1: The Identity (Glass Style) */}
+                    <motion.div 
+                        style={{ y: yLeft }} 
+                        className="p-10 md:p-14 rounded-[3.5rem] bg-white/80 backdrop-blur-2xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.3)] relative overflow-hidden"
+                    >
+                        {/* Decorative Gradient Flare */}
+                        <div className="absolute -top-20 -left-20 w-64 h-64 bg-secondary/10 blur-[100px] pointer-events-none" />
+                        
+                        <h2 className="text-secondary font-black text-4xl md:text-5xl mb-8 tracking-tighter italic">
+                            The Identity
+                        </h2>
+                        <p className="text-xl md:text-2xl leading-relaxed text-brand-text font-light tracking-tight">
+                            Candy K Luxe Cosmetics is a <span className="text-secondary font-medium">modern beauty brand</span> built on confidence, self-expression, and inclusivity. 
                         </p>
-                        <section className="flex items-center">
-                            <motion.img
-                                src={Candy}
-                                alt={'Candy'}
-                                animate={{ x: [0, -20, 0] }}
-                                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                                className="mt-4 rounded-xl w-60 md:w-50 lg:w-70 drop-shadow-[0_30px_50px_rgba(0,0,0,0.2)]"
-                            />
-                        </section>
+                        <p className="mt-6 text-lg text-brand-text/70 leading-relaxed">
+                            What began as a personal passion has grown into a brand dedicated to celebrating beauty in all its forms.
+                        </p>
                     </motion.div>
 
-                    <motion.div style={{ y: yRight }} className="mb-10 p-10 rounded-[3rem] bg-primary text-white shadow-2xl">
-                        <h2 className="font-black text-xl mb-4 text-white">The Story</h2>
-                        <p className="text-lg mb-4 leading-relaxed text-white/90">
-                            Born from a small dream in my bedroom, on 16th August 2024, driven by a deep belief that true beauty shines brightest through authenticity and self-confidence
+                    {/* Card 2: The Philosophy (Solid Primary Style) */}
+                    <motion.div 
+                        style={{ y: yRight }} 
+                        className="p-10 md:p-14 rounded-[3.5rem] bg-primary text-white shadow-[0_30px_60px_rgba(var(--primary-rgb),0.2)]"
+                    >
+                        <h2 className="font-black text-4xl md:text-5xl mb-8 tracking-tighter text-white italic">
+                            The Philosophy
+                        </h2>
+                        <p className="text-xl md:text-2xl leading-relaxed mb-6 font-medium">
+                            Rooted in elegance and individuality, we are designed to <span className="text-secondary">enhance and elevate</span> every beauty style.
                         </p>
-                        <p className="text-lg mb-4 leading-relaxed text-white/90">
-                            What begun as a vision has grown into a brand dedicated to helping women feel bold, beautiful and empowered especially women of deeper and richer skin tones.
+                        <p className="text-lg leading-relaxed text-white/80">
+                            Whether worn naturally or expressed through makeup—we empower women to feel confident, bold, and effortlessly luxe every day.
                         </p>
+
+                        {/* Minimalist Divider */}
+                        <div className="mt-10 h-px w-20 bg-white/30" />
                     </motion.div>
+
                 </div>
             </div>
-            {/* <div className="z-20 w-full mb-20 mt-20 bottom-0"/> */}
         </section>
     );
 };

@@ -36,7 +36,7 @@ const Manifesto = () => {
           </p>
 
           {/* The Statement */}
-          <p className="text-3xl md:text-5xl font-light leading-[1.4] text-brand-text tracking-tight italic">
+          <p className="text-xl md:text-2xl font-light leading-[1.4] text-brand-text tracking-tight italic">
             "We exist to <span className="text-brand-text font-medium not-italic">enhance</span>—not replace, natural beauty. Our products are designed to make every customer feel <span className="relative inline-block">
               bold
               <motion.span 
@@ -54,8 +54,8 @@ const Manifesto = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-6xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-brand-text via-secondary to-brand-text bg-size-[:100%_200%] animate-gradient-y"
-              style={{ lineHeight: '1.1' }}
+              className="text-3xl md:text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-brand-text via-secondary to-brand-text animate-gradient-y"
+              style={{ lineHeight: '1' }}
             >
               Your Lips, <br /> Your Power.
             </motion.h3>

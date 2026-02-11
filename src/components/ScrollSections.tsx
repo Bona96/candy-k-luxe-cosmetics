@@ -52,17 +52,21 @@ export const StackingSection = ({ children, index }: StackingProps) => {
     offset: ["start start", "end start"]
   });
 
-  // 3D & Spatial Transforms
+  // 1. Transform logic
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, -15]);
   const translateZ = useTransform(scrollYProgress, [0, 1], [0, -300]);
   
-  // Glassmorphism Visuals
-  // As the section stacks, it becomes more transparent and the blur intensifies
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.6]); 
-  const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(12px)"]);
+  // 2. THE FIX FOR NOISE: 
+  // We keep the card mostly solid (0.98) until it's scrolled away.
+  // We also increase the blur drastically as it moves back.
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.8]); 
+  const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(25px)"]);
+  
+  // 3. DARKNESS OVERLAY: 
+  // This "muffles" the background noise as the next section comes over it.
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.6]);
 
-  // Fix for your Form Interaction
   const pointerEvents = useTransform(scrollYProgress, [0, 0.4], ['auto', 'none']);
 
   return (
@@ -77,29 +81,34 @@ export const StackingSection = ({ children, index }: StackingProps) => {
           opacity, 
           rotateX,
           z: translateZ,
-          backdropFilter: blur, // Animates the frostiness
+          backdropFilter: blur,
           pointerEvents,
           transformOrigin: "top center",
         }}
+        /* CHANGE: bg-brand-bg is now solid. 
+           This prevents the 'noise' from the section BELOW showing through.
+        */
         className={`w-full min-h-[90vh] flex flex-col justify-start 
-          bg-brand-bg/80 border border-white/20 
-          rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] 
+          bg-brand-bg border border-white/10 
+          rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] 
           overflow-hidden relative ${index % 2 === 0 ? 'border-primary' : 'border-secondary'}
         `}
       >
-        {/* Glossy Reflection Overlay */}
-        <div className="absolute inset-0 bg-linear-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
+        {/* THE CONTENT SHIELD:
+           This overlay darkens the section as it moves into the stack, 
+           hiding the 'noise' for the section that sits ON TOP of it.
+        */}
+        <motion.div 
+          style={{ opacity: overlayOpacity }} 
+          className="absolute inset-0 bg-black z-30 pointer-events-none" 
+        />
         
-        {/* Content Container */}
+        {/* Glow & Content */}
+        <div className="absolute inset-0 bg-linear-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
+        
         <div className="relative z-20 h-full w-full">
           {children}
         </div>
-
-        {/* Dynamic Darkener: adds depth as it moves away */}
-        <motion.div 
-          style={{ opacity: useTransform(scrollYProgress, [0, 1], [0, 0.4]) }} 
-          className="absolute inset-0 bg-black pointer-events-none" 
-        />
       </motion.div>
     </div>
   );

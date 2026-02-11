@@ -23,41 +23,36 @@ import Testimonials from './components/Testimonials'
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
-  // This hook automatically syncs Lenis scroll with GSAP ScrollTrigger
   useLenis(() => {
     ScrollTrigger.update();
   });
 
   return (
-    <ReactLenis 
-      root 
-      options={{ 
-        // autoRaf: true (default) is much safer for mobile
-        duration: 1.2,
-        syncTouch: true,      // Intercepts touch for smoothing
-        touchMultiplier: 1.5, // Natural mobile speed
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-      }}
-    >
-      <div className="flex flex-col justify-center bg-brand-bg relative min-h-screen">
-        <CustomCursor />
+    <ReactLenis root options={{ duration: 1.2, syncTouch: true }}>
+      <CustomCursor />
+      <div className="bg-brand-bg relative">
         <Navbar />
+        
+        {/* 1. Introductory Sections (Natural Scroll) */}
         <Hero />
         <Media />
         <AboutCandyK />
-        {/* Sections */}
-        <StackingSection index={1}><Testimonials /></StackingSection>
-        <StackingSection index={2}><MissionVision3D /></StackingSection>
-        <StackingSection index={3}><Values /></StackingSection>
-        <StackingSection index={4}><Goals /></StackingSection>
-        <StackingSection index={5}><Manifesto /></StackingSection>
-        <StackingSection index={6}><Contact /></StackingSection>
-        
+
+        {/* 2. The Interactive Stack (3D Experience) */}
+        <div className="relative z-10">
+          <StackingSection index={1}><Testimonials /></StackingSection>
+          <StackingSection index={2}><MissionVision3D /></StackingSection>
+          <StackingSection index={3}><Values /></StackingSection>
+          <StackingSection index={4}><Goals /></StackingSection>
+          <StackingSection index={5}><Manifesto /></StackingSection>
+          
+          {/* Contact as the FINAL piece of the stack */}
+          <StackingSection index={6}><Contact /></StackingSection>
+        </div>
+
+        {/* 3. The Reveal (Footer) */}
+        {/* We place the footer at a higher z-index or keep it simple below the stack */}
         <Footer footerInfo={footerData}/>
-        
-        {/* Grain Overlay - Ensure z-index is lower than buttons */}
-        {/* <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /> */}
       </div>
     </ReactLenis>
   );

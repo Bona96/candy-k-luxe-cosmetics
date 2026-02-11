@@ -91,7 +91,7 @@ export const StackingSection = ({ children, index }: StackingProps) => {
         className={`w-full min-h-[90vh] flex flex-col justify-start 
           bg-brand-bg border border-white/10 
           rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] 
-          overflow-hidden relative ${index % 2 === 0 ? 'border-primary' : 'border-secondary'}
+          overflow-hidden sm:overflow-y-auto lg:overflow-hidden relative ${index % 2 === 0 ? 'border-primary' : 'border-secondary'}
         `}
       >
         {/* THE CONTENT SHIELD:

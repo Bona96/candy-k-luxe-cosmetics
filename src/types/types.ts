@@ -71,6 +71,12 @@ export interface Testimonial {
   rating: number;
   avatar: string;
 }
+// goals
+export interface GoalType {
+  year: string;
+  task: string;
+  desc: string;
+}
 // socials
 export interface SocialLink {
   name: string;

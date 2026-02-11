@@ -35,7 +35,16 @@
     @apply bg-brand-bg text-brand-text transition-colors duration-300;
   }
 }
-
+@layer utilities {
+  /* Hides scrollbar while allowing scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
 /* Lenis css */
 html.lenis {
   height: auto;

@@ -15,7 +15,6 @@ const Navbar: React.FC = () => {
     { name: 'Goals', href: '#goals' },
     { name: 'Order Now', href: '#contact' }
   ];
-  console.log(mobileMenuOpen)
   return (
     <nav className={`fixed top-2 lg:top-4 w-full z-999 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
       <div className="container mx-auto px-4">

@@ -17,7 +17,6 @@ const Contact = () => {
     const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formRef.current) return;
-        console.log(EMAILJS_TEMPLATE_ID)
         setIsSending(true);
         setErrorMessage('');
 
@@ -79,7 +78,7 @@ const Contact = () => {
                                 <label className="text-xs font-bold uppercase tracking-wider px-2 text-brand-text/80">Name</label>
                                 <input 
                                     type="text" 
-                                    name="user_name" 
+                                    name="name" 
                                     required 
                                     placeholder="Your Name"
                                     className="w-full bg-brand-bg/50 border border-primary/30 rounded-2xl px-4 py-4 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" 
@@ -89,7 +88,7 @@ const Contact = () => {
                                 <label className="text-xs font-bold uppercase tracking-wider px-2 text-brand-text/80">Email</label>
                                 <input 
                                     type="email" 
-                                    name="user_email" 
+                                    name="email" 
                                     required 
                                     placeholder="email@example.com"
                                     className="w-full bg-brand-bg/50 border border-primary/30 rounded-2xl px-4 py-4 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" 

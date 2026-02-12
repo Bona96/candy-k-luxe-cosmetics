@@ -5,13 +5,19 @@ import {
 } from 'react-icons/fa6'
 
 import CandyK from '../assets/images/candy-k.jpg'
-import CandyKHoldingLipGloss from '../assets/images/candy-k-luxe-cosmetics-candy.jpeg'
 
-import LadyLookingAtProduct from './images/candy-k-lady-looking-at-product.jpg'
-import BlackWomanLipGlossBeauty from '../assets/images/candy-k-black-woman-lip-gloss-beauty.webp'
+
+
 // import MultipleProductDisplay from '../assets/images/candy-k-multiple-product-display.png'
 import logoWhite from '../assets/images/candy-k-logo-white-bg.png'
 import logoTransparent from '../assets/images/candy-k-logo-bg-transparent.png'
+
+//images for hero slider
+import CandyKHoldingLipGloss from '../assets/images/candy-k-luxe-cosmetics-candy.jpeg'
+import LadyLookingAtProduct from './images/candy-k-lady-looking-at-product.jpg'
+import Product3 from '../assets/images/candy-k-product-3.jpg'
+import LipLinerProduct1 from '../assets/images/candy-k-luxe-cosmetics-lip-liner-product.jpg'
+import LadyWearingTruffleLipGloss from '../assets/images/candy-k-luxe-cosmetics-person-wearing-truffle-shade-lipgloss.jpeg'
 
 // Product
 //Price list
@@ -19,26 +25,14 @@ import PriceList from "../assets/images/candy-k-product-price-list.jpg"
 //Images of product
 
 import ColorCraze1 from '../assets/images/candy-k-product-color-craze-1.jpg'
-import Product3 from '../assets/images/candy-k-product-3.jpg'
-// import Product4 from '../assets/images/candy-k-product-4.jpg'
-// import Product5 from '../assets/images/candy-k-product-5.jpg'
 import Product6 from '../assets/images/candy-k-product-6.jpg'
-// import Product7 from '../assets/images/candy-k-product-7.jpg'
-// import Product8 from '../assets/images/candy-k-product-8.jpg'
-// import RedBombShellLipgloss1 from '../assets/images/candy-k-redbombshell-lipgloss-1.jpg'
-// import RedBombShellLipgloss2 from '../assets/images/candy-k-redbombshell-lipgloss-2.jpg'
 import RedBombShellLipgloss1 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-1.jpeg'
-// import RedBombShellLipgloss2 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-2.jpg'
-// import RedBombShellLipgloss3 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-3.jpg'
 import RedBombShellLipgloss4 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-4.jpg'
 import RedBombShellLipgloss5 from '../assets/images/candy-k-luxe-cosmetics-redbombshell-lipgloss-5.jpeg'
-
-// import Product14 from '../assets/images/candy-k-product-14.jpg'
 
 import PesronWithProductDisplay1 from '../assets/images/candy-k-person-with-product-display-1.jpg'
 import PesronWearingProduct1 from '../assets/images/candy-k-person-wearing-lip-gloss-1.jpg'
 import PersonWithPocketMirror from '../assets/images/candy-k-person-with-pocket-mirror.jpeg'
-import LipLinerProduct1 from '../assets/images/candy-k-luxe-cosmetics-lip-liner-product.jpg'
 import LipLinerProduct2 from '../assets/images/candy-k-luxe-cosmetics-lip-liner-product-2.jpeg'
 // images for testimonials
 import HappyClient1 from '../assets/images/candy-k-luxe-cosmetics-happy-client-1.jpeg'
@@ -79,25 +73,25 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Isagara Lisa",
-    location: "Kampala",
-    quote: "The Gloss Charm is literally magic. It stays shiny for hours without that annoying sticky feeling. My new daily essential!",
+    location: "Kampala - Uganda",
+    quote: "The Gloss Charm is literally magic. Stays shiny for hrs without that annoying sticky feeling. My new daily essential!",
     shade: "Gloss Charm",
     rating: 5,
     avatar: HappyClient1
   },
   {
     id: 2,
-    name: "Client 2",
-    location: "Entebbe",
-    quote: "Finally, a luxury brand that understands diverse skin tones. Purple Reign looks stunning on me. Absolute 10/10.",
-    shade: "Purple Reign",
+    name: "Charlotte",
+    location: "United Kingdom - Europe",
+    quote: "This lipgloss is amazing \u{1F60A}, I love it!!!.",
+    shade: "Multiple shades",
     rating: 5,
     avatar: HappyClient2
   },
   {
     id: 3,
     name: "Client 3",
-    location: "Nairobi",
+    location: "Kampala - Uganda",
     quote: "The packaging alone makes me feel like a queen. But the formula? It’s the smoothest application I’ve ever experienced.",
     shade: "Luxe Tint",
     rating: 5,
@@ -171,7 +165,7 @@ export const threeDGalleryItems = [
     },
     {
         image: LipLinerProduct2,
-        text: 'Lipliner'
+        text: 'Lippies'
     },
     // {
     //     image: RedBombShellLipgloss1,
@@ -201,7 +195,6 @@ export const slides: SlideData[] = [
     title: "Featured Products",
     tagline: "Your Lips, Your Power.",
     description: "From nourishing lipgloss to lip scrubs, balms, collagen-infused lip masks and precision lip liners.",
-    // description: "A luxury beauty brand committed to producing high-quality, elegant, and affordable cosmetic products designed for everyday confidence.",
     image: LadyLookingAtProduct,
     color: "var(--secondary)"
   },
@@ -226,7 +219,7 @@ export const slides: SlideData[] = [
     title: "TRUFFLE LIPGLOSS",
     tagline: "Unapologetic Elegance.",
     description: "Our products are designed to make every customer feel bold, confident and unapologetic.",
-    image: BlackWomanLipGlossBeauty,
+    image: LadyWearingTruffleLipGloss,
     color: "var(--primary)"
   }
 ];

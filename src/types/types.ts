@@ -71,6 +71,16 @@ export interface Testimonial {
   rating: number;
   avatar: string;
 }
+export interface TestimonialControlsProps {
+  testimonials: Testimonial[];
+  index: number;
+  setIndex: (val: number) => void;
+  // direction: number;
+  setDirection: (val: number) => void;
+  nextStep: () => void;
+  prevStep: () => void;
+}
+
 // goals
 export interface GoalType {
   year: string;

@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { testimonials } from '../assets/constants';
+import { TestimonialControls } from './Buttons';
+import { Star } from 'lucide-react';
 
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
@@ -105,7 +106,7 @@ const Testimonials = () => {
                   ))}
                 </div>
 
-                <p className="text-xl md:text-2xl font-medium text-brand-text leading-relaxed italic mb-6">
+                <p className="text-lg md:text-xl font-medium text-brand-text leading-relaxed italic mb-6">
                   "{testimonials[index].quote}"
                 </p>
 
@@ -121,40 +122,19 @@ const Testimonials = () => {
                     </span>
                   </div>
                 </div>
+                <TestimonialControls
+                  testimonials={testimonials}
+                  index={index}
+                  setIndex={setIndex}
+                  setDirection={setDirection}
+                  nextStep={nextStep}
+                  prevStep={prevStep}
+                />
               </div>
             </div>
+            
           </motion.div>
         </AnimatePresence>
-
-        {/* Controls: Moved outside the card for better clickability within the stack */}
-        <div className="flex items-center justify-center gap-6 mt-12">
-          <button 
-            onClick={prevStep}
-            className="group p-4 rounded-full border border-white/10 bg-white/5 hover:bg-secondary hover:border-secondary transition-all"
-          >
-            <ChevronLeft size={24} className="group-hover:text-white" />
-          </button>
-          
-          <div className="flex gap-3">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                   setDirection(i > index ? 1 : -1);
-                   setIndex(i);
-                }}
-                className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-secondary' : 'w-2 bg-white/20 hover:bg-white/40'}`} 
-              />
-            ))}
-          </div>
-
-          <button 
-            onClick={nextStep}
-            className="group p-4 rounded-full border border-white/10 bg-white/5 hover:bg-secondary hover:border-secondary transition-all"
-          >
-            <ChevronRight size={24} className="group-hover:text-white" />
-          </button>
-        </div>
       </div>
     </div>
   );

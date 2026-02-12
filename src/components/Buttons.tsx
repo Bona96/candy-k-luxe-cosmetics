@@ -1,8 +1,9 @@
 import { useDarkMode } from '../contexts/DarkModeContext';
 import { motion } from 'framer-motion';
-import type { ModalBtnType, SliderNavBtnProps } from '../types/types';
+import type { ModalBtnType, SliderNavBtnProps, TestimonialControlsProps } from '../types/types';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
 import type React from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const ThemeToggle = () => {
   const { theme, toggleTheme } = useDarkMode();
@@ -70,5 +71,39 @@ export const SliderNavBtns: React.FC<SliderNavBtnProps> = ({ prevSlide, nextSlid
         </button>
       </div>
     </motion.section>
+  )
+}
+
+export const TestimonialControls: React.FC<TestimonialControlsProps> = ({ testimonials, index, setIndex, setDirection, nextStep, prevStep }) => {
+
+  return (
+    <div className="flex items-center justify-center gap-6 mt-5">
+      <button 
+        onClick={prevStep}
+        className="group p-4 rounded-full border border-white/10 bg-white/5 hover:bg-secondary hover:border-secondary transition-all"
+      >
+        <ChevronLeft size={24} className="group-hover:text-white" />
+      </button>
+      
+      <div className="flex gap-3">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => {
+                setDirection(i > index ? 1 : -1);
+                setIndex(i);
+            }}
+            className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-secondary' : 'w-2 bg-white/20 hover:bg-white/40'}`} 
+          />
+        ))}
+      </div>
+
+      <button 
+        onClick={nextStep}
+        className="group p-4 rounded-full border border-white/10 bg-white/5 hover:bg-secondary hover:border-secondary transition-all"
+      >
+        <ChevronRight size={24} className="group-hover:text-white" />
+      </button>
+    </div>
   )
 }
